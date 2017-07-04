@@ -11,35 +11,20 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 
 public class UploadObjectSingleOperation {
-	private static String bucketName     = "apaultest";
-	private static String keyName        = "irisData";
+	private static String bucketName     = "apaultest123";
+	private static String keyName        = "irisData";//its going to saved by this name inside the bucket
 	private static String uploadFileName = "/home/vishal/Downloads/IRIS.csv";
 	
-	public static void main(String[] args) throws IOException {
-        AmazonS3 s3client = new AmazonS3Client(new ProfileCredentialsProvider());
+	public void UploadFile() {
+        AmazonS3 s3client = new AmazonS3Client(new ProfileCredentialsProvider());//it will take the credentials from aws configure 
         try {
-            System.out.println("Uploading a new object to S3 from a file\n");
             File file = new File(uploadFileName);
-            s3client.putObject(new PutObjectRequest(
-            		                 bucketName, keyName, file));
+            s3client.putObject(new PutObjectRequest(bucketName, keyName, file));
 
          } catch (AmazonServiceException ase) {
-            System.out.println("Caught an AmazonServiceException, which " +
-            		"means your request made it " +
-                    "to Amazon S3, but was rejected with an error response" +
-                    " for some reason.");
-            System.out.println("Error Message:    " + ase.getMessage());
-            System.out.println("HTTP Status Code: " + ase.getStatusCode());
-            System.out.println("AWS Error Code:   " + ase.getErrorCode());
-            System.out.println("Error Type:       " + ase.getErrorType());
-            System.out.println("Request ID:       " + ase.getRequestId());
+            System.out.println(ase.getErrorCode() );
         } catch (AmazonClientException ace) {
-            System.out.println("Caught an AmazonClientException, which " +
-            		"means the client encountered " +
-                    "an internal error while trying to " +
-                    "communicate with S3, " +
-                    "such as not being able to access the network.");
-            System.out.println("Error Message: " + ace.getMessage());
+            System.out.println(ace.getMessage());
         }
     }
 }
