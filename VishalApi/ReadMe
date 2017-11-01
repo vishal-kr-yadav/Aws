@@ -1,0 +1,11 @@
+1)Create a Java project and your own package
+2)write some methods without the main method 
+example->public static double sumOf(int a, int b) {
+		return a + b;
+		}
+3)export by making it a runnable jar with some destination jar path
+4)Create another java project or any project 
+4)Build path then configure build path and then add the your jar in your new project
+5)import the package 
+6)call the method that you have created in your api
+
