@@ -11,9 +11,9 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 
 public class UploadObjectSingleOperation {
-	private static String bucketName     = "apaultest123";
-	private static String keyName        = "irisData";//its going to saved by this name inside the bucket
-	private static String uploadFileName = "/home/vishal/Downloads/IRIS.csv";
+	private static String bucketName     = "fpconversion/freedompop/reco_data";
+	private static String keyName        = "RecoStore_4155d00e-b272-415b-a60b-f7efd4a6cd92_09112017.txt";//its going to saved by this name inside the bucket
+	private static String uploadFileName = "/home/vishal/Downloads/RecoStore_4155d00e-b272-415b-a60b-f7efd4a6cd92_09112017.txt";
 	
 	public void UploadFile() {
         AmazonS3 s3client = new AmazonS3Client(new ProfileCredentialsProvider());//it will take the credentials from aws configure 
